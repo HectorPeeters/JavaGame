@@ -1,9 +1,8 @@
 package world;
 
-import org.newdawn.slick.GameContainer;
-
 import graphics.Window;
 import objects.WoodenWall;
+import org.newdawn.slick.GameContainer;
 
 public class World {
 
@@ -21,8 +20,6 @@ public class World {
 				tiles[x + y * WORLD_WIDTH] = new Tile(WorldGenerator.getTile(x, y));
 			}
 		}
-		
-		getTile(5, 5).worldObject = new WoodenWall();
 	}
 
 	public static void render(GameContainer gc) {

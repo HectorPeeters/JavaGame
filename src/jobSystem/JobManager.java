@@ -1,13 +1,12 @@
 package jobSystem;
 
-import java.util.ArrayList;
-import java.util.Stack;
-
+import entities.Worker;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
-import entities.Worker;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class JobManager {
 

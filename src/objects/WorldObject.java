@@ -1,8 +1,7 @@
 package objects;
 
-import org.newdawn.slick.Image;
-
 import assets.Images;
+import org.newdawn.slick.Image;
 
 public abstract class WorldObject {
 

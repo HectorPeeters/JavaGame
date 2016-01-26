@@ -10,11 +10,11 @@ public class WalkJob extends Job{
 	}
 
 	public boolean checkRequirements() {
-		return World.isWalkable(executePosition.x, executePosition.y);
+		return World.isWalkable(targetPosition.x, targetPosition.y);
 	}
 
 	public void onCreated() {
-		
+		executePosition = targetPosition;
 	}
 
 	public void execute() {

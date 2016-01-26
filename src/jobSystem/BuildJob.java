@@ -14,7 +14,7 @@ public class BuildJob extends Job {
 	}
 
 	public boolean checkRequirements() {
-		return World.getTile(executePosition.x, executePosition.y).worldObject == null;
+		return World.getTile(targetPosition.x, targetPosition.y).worldObject == null;
 	}
 
 	public void onCreated() {
@@ -22,7 +22,7 @@ public class BuildJob extends Job {
 	}
 
 	public void execute() {
-		World.getTile(executePosition.x, executePosition.y).worldObject = worldObject;
+		World.getTile(targetPosition.x, targetPosition.y).worldObject = worldObject;
 	}
 
 }

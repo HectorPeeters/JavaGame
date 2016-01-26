@@ -5,12 +5,14 @@ import world.World;
 
 public abstract class Job {
 
-	public Vector2i executePosition;
+	//tile of block
 	public Vector2i targetPosition;
+	//tile of player
+	public Vector2i executePosition;
 
 	public Job(Vector2i targetPosition) {
 		this.targetPosition = targetPosition;
-		executePosition = getExecutePostion(targetPosition);
+		this.executePosition = getExecutePostion(targetPosition);
 	}
 
 	public abstract boolean checkRequirements();

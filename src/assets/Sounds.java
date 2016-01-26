@@ -1,15 +1,14 @@
 package assets;
 
-import java.util.HashMap;
-
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
-
 import util.Strings;
+
+import java.util.HashMap;
 
 public class Sounds {
 
-	public static HashMap<String, Sound> sounds = new HashMap<String, Sound>();
+	public static HashMap<String, Sound> sounds = new HashMap<>();
 
 	public static Sound getSound(String name) {
 		String path = Strings.audioPath + name + ".wav";

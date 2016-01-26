@@ -1,8 +1,7 @@
 package world;
 
-import org.newdawn.slick.Image;
-
 import assets.Images;
+import org.newdawn.slick.Image;
 
 public enum TileType {
 	

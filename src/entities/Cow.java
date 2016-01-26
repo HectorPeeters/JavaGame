@@ -1,12 +1,11 @@
 package entities;
 
-import java.util.Random;
-
+import math.Vector2i;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
-
-import math.Vector2i;
 import world.World;
+
+import java.util.Random;
 
 public class Cow extends Entity {
 

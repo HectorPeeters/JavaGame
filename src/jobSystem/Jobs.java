@@ -15,6 +15,8 @@ public class Jobs {
 		switch (job) {
 		case WALK:
 			return new WalkJob(mousePos);
+		case REMOVE:
+			return new RemoveJob(mousePos);
 		case BUILD_WOODEN_WALL:
 			return new BuildJob(mousePos, new WoodenWall());
 		case BUILD_DOOR:

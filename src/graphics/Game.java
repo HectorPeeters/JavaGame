@@ -1,15 +1,14 @@
 package graphics;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.state.StateBasedGame;
-
 import assets.Images;
 import entities.Worker;
 import jobSystem.JobManager;
 import jobSystem.JobWindow;
 import math.Vector2i;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.state.StateBasedGame;
 import world.World;
 
 public class Game {

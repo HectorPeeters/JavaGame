@@ -14,7 +14,7 @@ public class ChangeTileJob extends Job{
 	}
 
 	public boolean checkRequirements() {
-		return World.isWalkable(executePosition.x, executePosition.y) && World.getTile(executePosition.x, executePosition.y).tileType != tileType;
+		return World.isWalkable(targetPosition.x, targetPosition.y) && World.getTile(targetPosition.x, targetPosition.y).tileType != tileType;
 	}
 
 	public void onCreated() {
@@ -22,7 +22,7 @@ public class ChangeTileJob extends Job{
 	}
 
 	public void execute() {
-		World.getTile(executePosition.x, executePosition.y).tileType = tileType;
+		World.getTile(targetPosition.x, targetPosition.y).tileType = tileType;
 	}
 
 }

@@ -1,13 +1,13 @@
 package entities.pathfinding;
 
+import entities.Entity;
+import math.Vector2i;
+import world.World;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import entities.Entity;
-import math.Vector2i;
-import world.World;
 
 public class Pathfinder {
 
