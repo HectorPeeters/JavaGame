@@ -2,7 +2,7 @@ package jobSystem;
 
 import assets.Images;
 import entities.Worker;
-import entities.pathfinding.Pathfinder;
+import org.lwjgl.Sys;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;

@@ -37,7 +37,8 @@ public class World {
     }
 
     public static boolean isWalkable(int x, int y) {
-        return (x >= WORLD_WIDTH || x < 0 || y >= WORLD_HEIGHT || y < 0 && getTile(x, y).isWalkable());
+        if (x >= WORLD_WIDTH || x < 0 || y >= WORLD_HEIGHT || y < 0 ) return false;
+        return getTile(x, y).isWalkable();
     }
 
     public static Tile getTile(int x, int y) {

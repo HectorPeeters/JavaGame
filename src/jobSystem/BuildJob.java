@@ -5,9 +5,6 @@ import objects.WorldObject;
 import resources.ResourceManager;
 import world.World;
 
-import javax.annotation.Resource;
-import java.util.Map;
-
 public class BuildJob extends Job {
 
     private final WorldObject worldObject;

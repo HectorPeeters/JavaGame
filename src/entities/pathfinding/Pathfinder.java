@@ -2,8 +2,6 @@ package entities.pathfinding;
 
 import entities.Entity;
 import math.Vector2i;
-import org.jetbrains.annotations.Contract;
-import org.lwjgl.Sys;
 import world.World;
 
 import java.util.ArrayList;

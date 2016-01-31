@@ -8,12 +8,12 @@ import objects.Tree;
 public class Jobs {
 
     public enum JobType {
-        WALK, REMOVE, BUILD_WOOD, BUILD_STONE, BUILD_DOOR
+        MOVE, REMOVE, BUILD_WOOD, BUILD_STONE, BUILD_DOOR
     }
 
     public static Job getJob(JobType job, Vector2i mousePos) {
         switch (job) {
-            case WALK:
+            case MOVE:
                 return new WalkJob(mousePos);
             case REMOVE:
                 return new RemoveJob(mousePos);
