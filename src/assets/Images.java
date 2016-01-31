@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class Images {
 
-    public static HashMap<String, Image> images = new HashMap<String, Image>();
+    private static HashMap<String, Image> images = new HashMap<>();
 
     public static Image getImage(String name) {
         String path = Strings.imagePath + name + ".png";

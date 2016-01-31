@@ -4,25 +4,25 @@ import math.Vector2i;
 import world.TileType;
 import world.World;
 
-public class ChangeTileJob extends Job{
+public class ChangeTileJob extends Job {
 
-	private TileType tileType;
-	
-	public ChangeTileJob(Vector2i targetPosition, TileType tileType) {
-		super(targetPosition);
-		this.tileType = tileType;
-	}
+    private final TileType tileType;
 
-	public boolean checkRequirements() {
-		return World.isWalkable(targetPosition.x, targetPosition.y) && World.getTile(targetPosition.x, targetPosition.y).tileType != tileType;
-	}
+    public ChangeTileJob(Vector2i targetPosition, TileType tileType) {
+        super(targetPosition);
+        this.tileType = tileType;
+    }
 
-	public void onCreated() {
-		
-	}
+    public boolean checkRequirements() {
+        return World.isWalkable(targetPosition.x, targetPosition.y) && World.getTile(targetPosition.x, targetPosition.y).tileType != tileType;
+    }
 
-	public void execute() {
-		World.getTile(targetPosition.x, targetPosition.y).tileType = tileType;
-	}
+    public void onCreated() {
+
+    }
+
+    public void execute() {
+        World.getTile(targetPosition.x, targetPosition.y).tileType = tileType;
+    }
 
 }

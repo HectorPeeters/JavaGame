@@ -4,13 +4,13 @@ import assets.Images;
 import org.newdawn.slick.Image;
 
 public enum TileType {
-	
-	GRASS("grass"), STONE("stone"), WATER("water");
-	
-	public Image image;
-	
-	TileType(String name) {
-		image = Images.getImage(name);
-	}
+
+    GRASS("grass_tile"), STONE("stone_tile");
+
+    public Image image;
+
+    TileType(String name) {
+        image = Images.getImage(name);
+    }
 
 }

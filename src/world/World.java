@@ -1,60 +1,47 @@
 package world;
 
 import graphics.Window;
-import objects.WoodenWall;
 import org.newdawn.slick.GameContainer;
 
 public class World {
 
-	public static final int TILE_SIZE = Tile.TILE_SIZE;
-	public static final int WORLD_WIDTH = Window.getWidth() / TILE_SIZE;
-	public static final int WORLD_HEIGHT = Window.getHeight() / TILE_SIZE;
+    private static final int TILE_SIZE = Tile.TILE_SIZE;
+    public static final int WORLD_WIDTH = Window.getWidth() / TILE_SIZE;
+    public static final int WORLD_HEIGHT = Window.getHeight() / TILE_SIZE;
 
-	public static Tile[] tiles = new Tile[WORLD_WIDTH * WORLD_HEIGHT];
+    public static Tile[] tiles = new Tile[WORLD_WIDTH * WORLD_HEIGHT];
 
-	public static void init() {
-		WorldGenerator.addTileType(TileType.GRASS);
-		WorldGenerator.addTileType(TileType.STONE);
-		for (int x = 0; x < WORLD_WIDTH; x++) {
-			for (int y = 0; y < WORLD_HEIGHT; y++) {
-				tiles[x + y * WORLD_WIDTH] = new Tile(WorldGenerator.getTile(x, y));
-			}
-		}
-	}
+    public static void init() {
+        for (int i = 0; i < WORLD_WIDTH * WORLD_HEIGHT; i ++) tiles[i] = new Tile(TileType.GRASS);
+        WorldGenerator.addTileType(TileType.GRASS);
+        WorldGenerator.addTileType(TileType.STONE);
+        WorldGenerator.generateWorld();
+    }
 
-	public static void render(GameContainer gc) {
-		renderGround();
-		renderObjects();
-	}
+    public static void renderTile(GameContainer gc, int x, int y) {
+        Tile currentTile = getTile(x, y);
+        currentTile.tileType.image.draw(x * TILE_SIZE, y * TILE_SIZE);
+    }
 
-	private static void renderObjects() {
-		for (int x = 0; x < WORLD_WIDTH; x++) {
-			for (int y = 0; y < WORLD_HEIGHT; y++) {
-				Tile currentTile = getTile(x, y);
-				if (currentTile.worldObject != null)
-					currentTile.worldObject.image.draw(x * TILE_SIZE, y * TILE_SIZE);
-			}
-		}
-	}
+    public static void renderObject(GameContainer gc, int x, int y) {
+        Tile currentTile = getTile(x, y);
+        if (currentTile.worldObject != null)
+            currentTile.worldObject.image.draw(x * TILE_SIZE, y * TILE_SIZE);
+    }
 
-	private static void renderGround() {
-		for (int x = 0; x < WORLD_WIDTH; x++) {
-			for (int y = 0; y < WORLD_HEIGHT; y++) {
-				getTile(x, y).tileType.image.draw(x * TILE_SIZE, y * TILE_SIZE);
-			}
-		}
-	}
 
-	public static boolean isWalkable(int x, int y) {
-		if (x >= WORLD_WIDTH || x < 0 || y >= WORLD_HEIGHT || y < 0)
-			return false;
-		if (getTile(x, y).worldObject == null)
-			return true;
-		return getTile(x, y).worldObject.walkable;
-	}
+    public static void render(GameContainer gc) {
+        for (int x = 0; x < WORLD_WIDTH; x++)
+            for (int y = 0; y < WORLD_HEIGHT; y++)
+                renderTile(gc, x, y);
+    }
 
-	public static Tile getTile(int x, int y) {
-		return tiles[x + y * WORLD_WIDTH];
-	}
+    public static boolean isWalkable(int x, int y) {
+        return (x >= WORLD_WIDTH || x < 0 || y >= WORLD_HEIGHT || y < 0 && getTile(x, y).isWalkable());
+    }
+
+    public static Tile getTile(int x, int y) {
+        return tiles[x + y * WORLD_WIDTH];
+    }
 
 }

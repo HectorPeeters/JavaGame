@@ -14,7 +14,7 @@ public class Worker extends Entity {
 
     public Job currentJob;
 
-    List<Vector2i> pathToTarget = new ArrayList<>();
+    private List<Vector2i> pathToTarget = new ArrayList<>();
 
     public float speed = 0.25f;
 
