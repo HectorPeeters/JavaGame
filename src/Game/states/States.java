@@ -1,4 +1,4 @@
-package graphics.states;
+package game.states;
 
 public class States {
 

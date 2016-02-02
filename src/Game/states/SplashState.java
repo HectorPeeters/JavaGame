@@ -1,6 +1,6 @@
-package graphics.states;
+package game.states;
 
-import graphics.Window;
+import game.Window;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;

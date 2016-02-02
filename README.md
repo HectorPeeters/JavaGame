@@ -1,3 +1,3 @@
-# Awesome Game
+# Awesome game
 
 Copyright Hector Peeters

@@ -1,6 +1,7 @@
 package world;
 
-import graphics.Window;
+import game.Window;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 
 public class World {
@@ -20,7 +21,7 @@ public class World {
 
     public static void renderTile(GameContainer gc, int x, int y) {
         Tile currentTile = getTile(x, y);
-        currentTile.tileType.image.draw(x * TILE_SIZE, y * TILE_SIZE);
+        currentTile.tileType.image.draw(x * TILE_SIZE, y * TILE_SIZE, new Color(1, 1, 1, currentTile.brightness));
     }
 
     public static void renderObject(GameContainer gc, int x, int y) {
@@ -29,11 +30,10 @@ public class World {
             currentTile.worldObject.image.draw(x * TILE_SIZE, y * TILE_SIZE);
     }
 
-
-    public static void render(GameContainer gc) {
-        for (int x = 0; x < WORLD_WIDTH; x++)
-            for (int y = 0; y < WORLD_HEIGHT; y++)
-                renderTile(gc, x, y);
+    public static boolean isTileType(int x, int y, TileType tileType) {
+        if (x < 0 || x >= World.WORLD_WIDTH || y < 0 || y >= World.WORLD_HEIGHT)
+            return false;
+        return getTile(x, y).tileType.equals(tileType);
     }
 
     public static boolean isWalkable(int x, int y) {
@@ -41,8 +41,23 @@ public class World {
         return getTile(x, y).isWalkable();
     }
 
+    public static boolean isSolid(int x, int y) {
+        if (x >= WORLD_WIDTH || x < 0 || y >= WORLD_HEIGHT || y < 0 ) return false;
+        if(getTile(x, y).worldObject != null)
+            return getTile(x, y).worldObject.isSolid;
+        return false;
+    }
+
     public static Tile getTile(int x, int y) {
+        if (x >= WORLD_WIDTH || x < 0 || y >= WORLD_HEIGHT || y < 0 ) return null;
         return tiles[x + y * WORLD_WIDTH];
     }
 
+    public static int getWorldObjectAmount() {
+        int amount = 0;
+        for (int x = 0; x < WORLD_WIDTH; x++)
+            for (int y = 0; y < WORLD_HEIGHT; y++)
+                if(getTile(x, y).worldObject != null) amount ++;
+        return  amount;
+    }
 }

@@ -1,6 +1,6 @@
-package graphics.states;
+package game.states;
 
-import graphics.Game;
+import game.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;

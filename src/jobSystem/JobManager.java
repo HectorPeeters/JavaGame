@@ -2,7 +2,6 @@ package jobSystem;
 
 import assets.Images;
 import entities.Worker;
-import org.lwjgl.Sys;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
@@ -13,7 +12,7 @@ import java.util.Stack;
 
 public class JobManager {
 
-    private static Stack<Job> jobs = new Stack<>();
+    public static Stack<Job> jobs = new Stack<>();
     public static ArrayList<Worker> workers = new ArrayList<>();
 
     public static void addWorker(Worker worker) {
@@ -31,9 +30,11 @@ public class JobManager {
             for (Worker worker : workers) {
                 if (worker.currentJob == null) {
                     Job current = jobs.get(0);
-                    if (current.checkRequirements() && !current.inProgress && current.executePosition != null) {
-                        worker.currentJob = current;
-                        current.inProgress = true;
+                    if (current.checkRequirements()&& current.executePosition != null) {
+                        if(!current.inProgress) {
+                            worker.currentJob = current;
+                            current.inProgress = true;
+                        }
                     }
                     else
                         jobs.remove(0);

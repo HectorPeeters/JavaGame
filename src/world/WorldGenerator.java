@@ -1,11 +1,13 @@
 package world;
 
-import objects.Stone;
-import objects.Tree;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import objects.DiamondOre;
+import objects.IronOre;
+import objects.Stone;
+import objects.Tree;
 
 public class WorldGenerator {
 
@@ -27,6 +29,8 @@ public class WorldGenerator {
                 Tile current = World.getTile(x, y);
                 if(current.tileType.equals(TileType.STONE)) current.worldObject = new Stone();
                 if(current.tileType.equals(TileType.GRASS) && random.nextInt(30) == 1) current.worldObject = new Tree();
+                if(current.tileType.equals(TileType.STONE) && random.nextInt(40) == 1) current.worldObject = new IronOre();
+                if(current.tileType.equals(TileType.STONE) && random.nextInt(100) == 1) current.worldObject = new DiamondOre();
             }
         }
 
@@ -65,9 +69,7 @@ public class WorldGenerator {
     }
 
     private static boolean checkTile(int x, int y, TileType tileType) {
-        if (x < 0 || x >= World.WORLD_WIDTH || y < 0 || y >= World.WORLD_HEIGHT)
-            return false;
-        return World.getTile(x, y).tileType.equals(tileType);
+        return World.isTileType(x, y, tileType);
     }
 
     private static void generateRandomTiles() {

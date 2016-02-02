@@ -16,7 +16,7 @@ public class Door extends WorldObject {
     }
 
     public String[] getResources() {
-        return new String[] {"Tree", "Stone"};
+        return new String[] {"Tree", "Iron"};
     }
 
     public static Direction getDirection(Vector2i pos) {

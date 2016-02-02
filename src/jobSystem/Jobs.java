@@ -2,13 +2,14 @@ package jobSystem;
 
 import math.Vector2i;
 import objects.Door;
+import objects.IronWall;
 import objects.Stone;
 import objects.Tree;
 
 public class Jobs {
 
     public enum JobType {
-        MOVE, REMOVE, BUILD_WOOD, BUILD_STONE, BUILD_DOOR
+        MOVE, REMOVE, BUILD_WOOD, BUILD_STONE, BUILD_IRON_WALL, BUILD_DOOR
     }
 
     public static Job getJob(JobType job, Vector2i mousePos) {
@@ -21,6 +22,8 @@ public class Jobs {
                 return new BuildJob(mousePos, new Tree());
             case BUILD_STONE:
                 return new BuildJob(mousePos, new Stone());
+            case BUILD_IRON_WALL:
+                return new BuildJob(mousePos, new IronWall());
             case BUILD_DOOR:
                 return new BuildJob(mousePos, new Door(Door.getDirection(mousePos)));
             default:

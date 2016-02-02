@@ -1,9 +1,9 @@
-package graphics;
+package game;
 
 import assets.Images;
 import assets.Sounds;
-import graphics.states.GameState;
-import graphics.states.SplashState;
+import game.states.GameState;
+import game.states.SplashState;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -30,6 +30,8 @@ public class Engine extends StateBasedGame {
 
     public void initStatesList(GameContainer gc) throws SlickException {
         gc.setAlwaysRender(true);
+        gc.setTargetFrameRate(60);
+        gc.setShowFPS(false);
 
         addState(new SplashState(Images.getImage("splash"), Sounds.getSound("startup"), 0, true));
         addState(gameState);
