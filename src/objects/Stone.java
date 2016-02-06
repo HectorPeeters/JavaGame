@@ -2,12 +2,13 @@ package objects;
 
 public class Stone extends WorldObject {
 
-    public Stone() {
-        super("Stone", false, true);
-    }
+	public Stone() {
+		super("Stone", false, true, 150);
+	}
 
-    public String[] getResources() {
-        return new String[] {"Stone"};
-    }
+	@Override
+	public String[] getResources() {
+		return new String[] { "Stone" };
+	}
 
 }

@@ -1,24 +1,28 @@
 package objects;
 
-import assets.Images;
 import org.newdawn.slick.Image;
+
+import assets.Images;
 
 public abstract class WorldObject {
 
-    public Image image;
-    public boolean isWalkable;
-    public boolean isSolid;
+	public Image image;
+	public boolean isWalkable;
+	public boolean isSolid;
+	public int destroyTime;
 
-    public WorldObject(String name, boolean isWalkable, boolean isSolid) {
-        image = Images.getImage(name);
-        this.isWalkable = isWalkable;
-        this.isSolid = isSolid;
-    }
+	public WorldObject(String name, boolean isWalkable, boolean isSolid, int destroyTime) {
+		image = Images.getImage(name);
+		this.isWalkable = isWalkable;
+		this.isSolid = isSolid;
+		this.destroyTime = destroyTime;
+	}
 
-    public String toString() {
-        return getClass().getSimpleName();
-    }
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 
-    public abstract String[] getResources();
+	public abstract String[] getResources();
 
 }

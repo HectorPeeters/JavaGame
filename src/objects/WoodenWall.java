@@ -2,12 +2,13 @@ package objects;
 
 public class WoodenWall extends WorldObject {
 
-    public WoodenWall() {
-        super("woodenWall", false, true);
-    }
+	public WoodenWall() {
+		super("woodenWall", false, true, 150);
+	}
 
-    public String[] getResources() {
-        return new String[] {"Tree"};
-    }
+	@Override
+	public String[] getResources() {
+		return new String[] { "Tree" };
+	}
 
 }

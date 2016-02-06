@@ -13,9 +13,9 @@ public class Images {
 
 	public static Image getImage(String name) {
 		String path = Strings.imagePath + name + ".png";
-		if (images.containsKey(name)) {
+		if (images.containsKey(name))
 			return images.get(name);
-		} else
+		else
 			try {
 				Image image = new Image(path, false, Image.FILTER_NEAREST);
 				images.put(name, image);
